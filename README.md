@@ -1,4 +1,4 @@
-# Eleventy plugin to easily embed YouTube videos with a minimal footprint
+# Eleventy plugin for easy embedding of YouTube videos with a minimal size
 
 The plugin leverages [Paul Irish´s lite-youtube web component](https://github.com/paulirish/lite-youtube-embed).
 
