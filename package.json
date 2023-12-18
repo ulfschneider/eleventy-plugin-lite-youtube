@@ -1,0 +1,16 @@
+{
+  "name": "eleventy-plugin-lite-youtube",
+  "version": "0.1.0",
+  "description": "",
+  "main": "eleventy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ulfschneider",
+  "license": "ISC",
+  "dependencies": {
+    "clean-css": "^5.3.3",
+    "lite-youtube-embed": "0.3.0",
+    "terser": "^5.26.0"
+  }
+}
