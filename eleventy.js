@@ -47,7 +47,7 @@ async function transformLiteYoutube(content) {
   const SINGLE_LINE =
     /<p(\s+.*?)?>\s*(http(s)?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/(embed\/|watch\?v=)?(?<videoId>[^?<\s]+).*?\s*<\/p>/i;
   const FIGURE =
-    /<figure(\s+.*?)?>\s*(http(s)?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/(embed\/|watch\?v=)?(?<videoId>[^?<\s]+).*?\s*?(<\/figure>|<figcaption>)/i;
+    /(<figure(\s+.*?)?>|<\/figcaption>)\s*(http(s)?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/(embed\/|watch\?v=)?(?<videoId>[^?<\s]+).*?\s*?(<\/figure>|<figcaption(\s+.*?)?>)/i;
 
   const PATTERN = [IFRAME, SINGLE_LINE, FIGURE];
 
