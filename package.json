@@ -1,12 +1,16 @@
 {
   "name": "eleventy-plugin-lite-youtube",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Easy embedding of YouTube videos with minimal size into your 11ty content",
   "main": "eleventy.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/ulfschneider/eleventy-plugin-lite-youtube"
   },
+  "keywords": [
+    "eleventy",
+    "eleventy-utility"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
