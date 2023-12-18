@@ -15,7 +15,7 @@ npm install --save-dev eleventy-plugin-lite-youtube
 In your `eleventy.js` file:
 
 ```js
-const liteYoutube = require("eleventy-plubin-lite-youtube");
+const liteYoutube = require("eleventy-plugin-lite-youtube");
 //...
 eleventyConfig.addPlugin(liteYoutube);
 ```
