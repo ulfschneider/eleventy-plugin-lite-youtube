@@ -1,6 +1,6 @@
 {
   "name": "eleventy-plugin-lite-youtube",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Easy embedding of YouTube videos with minimal size into your 11ty content",
   "main": "eleventy.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "author": "ulfschneider",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "clean-css": "^5.3.3",
     "lite-youtube-embed": "0.3.0",
     "terser": "^5.26.0"
