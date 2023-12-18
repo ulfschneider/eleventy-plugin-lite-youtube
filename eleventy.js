@@ -43,24 +43,35 @@ async function hydrateLiteYoutube(content) {
 
 async function transformLiteYoutube(content) {
   const IFRAME =
-    /<iframe\s+.*?src="\S*?(youtube\.com|youtu\.be)\/(embed\/|watch\?v=)?(?<videoId>[^?<\s]+).*?\s*?<\/iframe>/i;
-  const SINGLE_LINE =
-    /<p(\s+.*?)?>\s*(http(s)?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/(embed\/|watch\?v=)?(?<videoId>[^?<\s]+).*?\s*<\/p>/i;
+    /<iframe.*?\s+src="\S*?(youtube\.com|youtu\.be)\/(embed\/|watch\?v=)?(?<videoId>[^?<\s]+).*?\s*<\/iframe>/di;
   const FIGURE =
-    /(<figure(\s+.*?)?>|<\/figcaption>)\s*(http(s)?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/(embed\/|watch\?v=)?(?<videoId>[^?<\s]+).*?\s*?(<\/figure>|<figcaption(\s+.*?)?>)/i;
+    /(<figure(\s+.+?)?>|<\/figcaption>)(\s*(?<url>http(s)?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/(embed\/|watch\?v=)?(?<videoId>[^?<\s]+).*?\s*)(<\/figure>|<figcaption(\s+.+?)?>)/di;
+  const SINGLE_LINE =
+    /<p(\s+.+?)?>\s*(http(s)?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/(embed\/|watch\?v=)?(?<videoId>[^?<\s]+).*?\s*<\/p>/di;
 
-  const PATTERN = [IFRAME, SINGLE_LINE, FIGURE];
+  const PATTERN = [IFRAME, FIGURE, SINGLE_LINE];
 
   let found = false;
   for (const pattern of PATTERN) {
     while ((match = content.match(pattern))) {
       found = true;
-      content = replaceHTMLWithLiteYoutube(
-        content,
-        match.index,
-        match[0].length,
-        match.groups.videoId
-      );
+
+      if (pattern == FIGURE) {
+        [start, end] = match.indices[3]; //url is at index 3
+        content = replaceHTMLWithLiteYoutube(
+          content,
+          start,
+          end - start,
+          match.groups.videoId
+        );
+      } else {
+        content = replaceHTMLWithLiteYoutube(
+          content,
+          match.index,
+          match[0].length,
+          match.groups.videoId
+        );
+      }
     }
   }
 
