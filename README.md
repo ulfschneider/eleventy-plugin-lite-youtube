@@ -4,7 +4,7 @@ The plugin leverages [Paul Irish´s lite-youtube web component](https://github.c
 
 The typical YouTube embed has a weight above 1 MB, while Paul Irish´s `<lite-youtube>` comes with a total weight of 32 KB (which is about 2-3 % of the original size). This way pages load _much faster_ and consume _much less_ bandwidth. And, as a bonus, it´s easier to embed a YouTube video – dropping the URL in a dedicated textline is enough.
 
-Please also refer to [ONE YOUTUBE EMBED WEIGHS ALMOST 1.2 MB](https://www.zachleat.com/web/youtube-embeds/)
+Please also refer to [ONE YOUTUBE EMBED WEIGHS ALMOST 1.2 MB](https://www.zachleat.com/web/youtube-embeds/).
 
 ## Install
 
